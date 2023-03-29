@@ -1,0 +1,39 @@
+//webset: https://1gdzkq.csb.app/
+import { useState } from 'react';
+const user = {
+  name: 'Hello MGL AND FF',
+  imageUrl: 'https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/338713710_220538513960242_3099264844149539221_n.jpg?stp=cp6_dst-jpg&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=51OIBkQTrkMAX9hryfV&_nc_ht=scontent-hkg4-1.xx&oh=00_AfC5hf5sZAVICWDIFBHtjBaiBhI0E5GYCQ-Iwu0llqczYw&oe=6428AE15',
+  imageSize: 190,
+};
+
+
+export default function Profile() {
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <img
+        className="avatar"
+        src={user.imageUrl}
+        alt={'Photo of ' + user.name}
+        style={{
+          width: user.imageSize*2,
+          height: user.imageSize*1.5
+        }}
+      />
+      <MyButton/>
+    </>
+  );
+}
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Likes {count} 
+    </button>
+  );
+}
